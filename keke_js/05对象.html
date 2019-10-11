@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+	</head>
+
+	<body>
+
+	</body>
+	<script>
+		//01创建一个老师对象
+		var teacher1 = new Object();
+		//使用属性来描述老师特征
+		teacher1.age = 30;
+		teacher1.look = "good";
+		//使用函数来表示老师的行为
+		var read = function() {
+			console.log('老师在读书')
+		}
+		read();
+
+		//02 修改对象属性 ,调用对象方法
+		teacher1.age = 27;
+		teacher1.sounds = function() {
+			console.log('老师今年' + this.age + "岁")
+		}
+		teacher1.sounds();
+		console.log(teacher1.constructor.name);
+
+		//03批量创建对象
+		var creatTeacher = function(a, b) {
+			var teacher = new Object();
+			teacher.name = a;
+			teacher.age = b;
+			return teacher;
+		}
+		var teacher2 = creatTeacher("波多", 29);
+		var teacher3 = creatTeacher("高晓松", 49);
+
+		//		04遍历对象
+		var obj = {
+			"name": "张三",
+			"age": 18,
+			"sex": "男"
+		};
+		for(var key in obj) {
+			console.log(key + '=' + obj[key])
+		}
+
+		//  05Math对象的使用 取整 取随机数 取最大值
+		console.log(Math.max(1, 45, 3, 11), Math.ceil(2.17), Math.round(Math.random() * 10));
+
+		// 06 时间戳new Date();
+		var date = new Date();
+		//date.toLocalString()当地时间表现格式
+		console.log(date, date.toLocaleString());
+	</script>
+
+</html>
