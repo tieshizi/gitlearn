@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+</body>
+<script>
+
+
+	//01 求1~100的和
+	var sum = 0;
+	for (var i = 0; i <= 100; i++) {
+		sum += i;
+	}
+	console.log(sum)
+
+
+	//02 打印三角形
+	for (var i = 0; i < 5; i++) {
+		for (var j = 0; j < i; j++) {
+			document.write('@')
+		}
+		document.write('<br>')
+
+	}
+	for (var i = 5; i > 0; i--) {
+		for (var j = 0; j < i; j++) {
+			document.write('@')
+		}
+		document.write('<br>')
+	}
+
+
+	//03打印99乘法表
+	document.write("<table>")
+	for (var i = 1; i <= 9; i++) {
+		document.write("<tr>")
+
+		for (var j = 1; j <= i; j++) {
+			document.write('<td>')
+			document.write(j + '*' + i + '=' + i * j)
+			document.write('<td>')
+
+		}
+		document.write("<tr>")
+	}
+	document.write("</table>")
+
+
+	//04斐波那契数列
+	var res = 0;
+	num1 = 0;
+	num2 = 1;
+	for (i = 3; i <= 7; i++) {
+		res = num1 + num2;
+		num1 = num2;
+		num2 = res;
+	}
+	console.log(res)
+
+
+	//05 continue和break用法
+	//continue关键字只能够用于循环语句中
+	for (var i = 0; i < 10; i++) {
+		if (i == 3) {
+			continue;
+		}
+		//			console.log(i); //0 1 2 4 5 6 7 8 9
+	}
+
+	//break用来结束整个循环语句
+	//break可以用于循环语句和switch判断条件
+	for (var i = 0; i < 10; i++) {
+		if (i == 3) {
+			break;
+		}
+		//			console.log(i); //0   1   2
+	}
+
+
+</script>
+
+</html>
