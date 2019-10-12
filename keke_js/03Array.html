@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+</body>
+<script>
+	//01 创建数组:字面量创建数组/构造函数创建数组
+	var arr1 = [];
+	var arr2 = [12];
+	var arr3 = [12, '33', '你可以啊', true]
+	var arr4 = new Array();
+	var arr5 = new Array(12);
+	var arr6 = new Array(12, '33', '你可以啊', true);
+	console.log(arr6);
+
+	var arr = [24, 12, 86, 519, 30, 28, 49, 71];
+
+	//02求数组的所有数之和及平均数
+	var sum = 0;
+	var average;
+	for (var i = 0; i < arr.length; i++) {
+		sum += arr[i];
+	}
+	average = sum / (i + 1);
+	console.log(sum, average)
+
+	//03求数组最大值以及最大值所在位置
+	var max = 0;
+	var maxIndex;
+	for (var i = 0; i < arr.length; i++) {
+		if (arr[i] > max) {
+			max = arr[i];
+			maxIndex = i;
+		}
+	}
+	console.log(max, maxIndex);
+
+	var arr7 = ["abc", "def", "Hello", "Hi", "World"];
+
+	//04将一个字符串数组用"|"分割
+	var str = "";
+	for (var i = 0; i < arr7.length; i++) {
+		str += arr7[i] + '|';
+	}
+	console.log(str + '========================');
+
+	//05字符串数组,将每一个字符串的长度存到一个新的数组
+	var arr8 = [];
+	for (var i = 0; i < arr7.length; i++) {
+		arr8[arr8.length] = arr7[i].length;
+	}
+	console.log(arr8);
+
+	var arr9 = [1, 0, 2, 0, 4, 0, 7, 8, 0, 9, 2, 0, 4, 9, 0];
+
+	//  06.将数组中值为0的项去掉，将不为0的值存入一个新的数组
+	var arr10 = [];
+
+	for (var i = 0; i < arr9.length; i++) {
+		if (arr9[i] != 0) {
+			arr10[arr10.length] = arr9[i];
+		}
+	}
+	console.log(arr10);
+
+	//07 将一个数组倒序存到一个新数组中
+	var arr11 = [];
+	for (var i = arr9.length - 1; i >= 0; i--) {
+		arr11[arr11.length] = arr9[i];
+	}
+	console.log(arr11);
+
+	//08 数组的常见方法
+
+	//08.1判断是不是一个数组Array.isArray(x);
+	var b = 0;
+	var c = {
+		"age": 100
+	}
+	var e = [55];
+	console.log(Array.isArray(e))
+
+	//08.2 将数组转化为字符串 join()
+	var arr12 = [0, 7, 8, 0, 9, 2, 0, 4];
+	console.log(arr12.join());
+
+	//08.3将数组最后添加一个元素并返回改变后的自己 push();
+	arr12.push(7);
+	console.log(arr12)
+
+	//08.4 将数组最后一个元素删除返回改变后的自己pop();
+	arr12.pop();
+	console.log(arr12);
+
+	//		08.5在数组最前面加一个元素返回改编后的自己 unshift();
+	arr12.unshift(8);
+	console.log(arr12);
+
+	//		08.6在数组最前面删除一个元素并返回改变后的自己 shift();
+	arr12.shift();
+	console.log(arr12);
+
+	//		08.7数组的翻转 reverse并返回改变后的自己 ();
+	arr12.reverse();
+	console.log(arr12);
+
+	//		08.8数组的排序sort并返回改变后的自己 ();
+	arr12.sort()
+	console.log(arr12);
+
+	//		08.9 数组的拼接 返回一个新数组不是自己concat();
+	var arr13 = [100, 101, 102]
+	var arr14 = arr12.concat(arr13);
+	console.log(arr14);
+
+	//		08.10数组的截取 slice(a,b) 截取老数组从a到b的元素，返回接下来的元素变成一个新数组，包前不包后
+
+	var arr15 = arr14.slice(3, 7)
+	console.log(arr15);
+
+	//08.11 splice(a,b,c,d,e);把数组从a开始删除b个元素,再插入c,d,e;!!!!!返回改编后的自己
+	var arr16 = [1, 2, 3, 4]
+	arr16.splice(1, 1, 66, 77, 88, 99)
+	console.log(arr16);
+
+	//08.12 查找数组 indexOf(m); 查元素m的下标
+	console.log(arr16.indexOf(77));
+
+	//09操作数组里元素的方法 filter(); forEach(); map(); every(); some(); 都调用函数
+
+	//09.1filter();过滤原数组，把符合标准的元素放到一个新数组返回；
+	var arr17 = [1, 8, 66, 77, 88, 99];
+	var arr18 = arr17.filter(function (e, i, a) {
+		return i > 3;
+	})
+	console.log(arr18);
+
+	//09.2forEach();原数组每个元素都执行函数，函数没有返回值；
+	arr17.forEach(function (val) {
+		//						val.selected = false;
+
+	})
+	console.log(arr17);
+
+	//09.3map();原数组每个元素都执行函数，函数的执行结果放到一个新数组中；
+	var arr18 = arr17.map(function (e, i, a) {
+		return e * 10;
+	})
+
+	console.log(arr18);
+
+	//		09.4 some()和every()是判断返回布尔值
+
+	//10 清空一个数组 arr=[];就可以
+	arr18 = [];
+	console.log(arr18);
+
+	var arr19 = ["c", "a", "z", "a", "x", "a", "a", "z", "c", "x", "a", "x"]
+
+	//		11判断数组中第一个a出现的位置最后一个a出现的位置
+	console.log(arr19.indexOf("a"), arr19.lastIndexOf("a"));
+
+	//12找到数组中每一个a出现的位置,存到一个新数组中
+	var arr20 = [];
+
+	for (var i = 0; i < arr19.length; i++) {
+		if (arr11[i] == 'a') {
+			arr20.push(i)
+		}
+	}
+	console.log(arr20);
+
+	//13数组去重
+	var arr21 = [];
+
+	for (var i = 0; i < arr19.length; i++) {
+		console.log(arr21.indexOf(arr19[i]))
+		if (arr21.indexOf(arr19[i]) == -1) {
+			arr21.push(arr19[i])
+		}
+	}
+	console.log(arr21);
+
+		//14. 获取数组中每个元素出现的次数
+		//		  var obj = {};
+		//		  for(var i = 0; i < arr19.length; i++){
+		//		    if (obj[arr19[i]] == undefined){
+		//		      obj[arr19[i]] = 1;
+		//		    }else{
+		//		      obj[arr19[i]] ++;
+		//		    }
+		//		  }
+		//		  console.log(obj);
+</script>
+
+</html>

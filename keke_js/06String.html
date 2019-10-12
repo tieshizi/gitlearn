@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+
+<body>
+	<script>
+		var str = "Hello    World   ";
+
+		//01查找指定第一个字符串位置，指定最后一个字符串位置
+		console.log(str.indexOf("l"));
+		console.log(str.lastIndexOf("l"));
+
+		//02去掉字符串两端的空白 trim();
+		console.log(str.trim());
+
+		//03大小写转换 toUpperCase();toLowerCase();
+		console.log(str.toUpperCase(), str.toLowerCase().trim());
+
+		//04字符串的拼接与截取 
+		//substring();slice(a,b); 截取生成一个新字符串，下标a到b，前包后不包；
+		console.log(str.slice(2, 8), str.substring(2, 8));
+
+		//substr(a,b);截取生成一个新字符串，从下标a开始，长度为b；
+		console.log(str.substr(2, 8));
+
+		//cancat(a,b);拼接a,b两个字符串生成一个新字符串；
+		var str1 = str.slice(0, 5).concat(str.slice(9, 14))
+		console.log(str1);
+
+		//05往字符串里插入一个元素
+		//function insert_flg(str,flg,sn){
+		//    var newstr="";
+		//    for(var i=0;i<str.length;i+=sn){
+		//        var tmp=str.substring(i, i+sn);
+		//        newstr+=tmp+flg;
+		//    }
+		//    return newstr;
+		//}
+		//var str2 = insert_flg(str1, "," ,1)
+
+		//06切割字符串最后一个元素生成一个新数组
+		//var str3 = str2.slice(0,str2.length-1);
+		//console.log(str2);
+		//console.log(str3);
+
+		//07将一个对象切割成字符串;
+		var str4 = "张三,李四,王五";
+		str4.split(',')
+		console.log(str4.split(','), str1.split(""));
+		console.log(str1.split(6, 1));
+
+		var str5 = "?id=15&home=刘店镇";
+
+		function getURL() {
+
+			//   slice(1);切割从下标1开始到最后的字符串生成一个新字符串
+			var search = str5.slice(1);
+			search = search.split("&");
+
+			var searchObj = {};
+
+			for (var i = 0; i < search.length; i++) {
+				var key = search[i].split('=')[0];
+				var val = decodeURI(search[i].split('=')[1]);
+				searchObj[key] = val;
+			}
+			//			        debugger			 				        
+			return searchObj;
+		}
+
+		console.log(getURL().home)
+
+		//08.字符串替换replace("a","b")将字符串里的 第一个出现的a 转换成为 b ||||replace(/a/g,"b")将字符串里的所有出现的a 转换成为 b  
+		console.log(str5.replace(/=/g, "可"));
+
+		//把一个字符串中所有的空格全部去掉
+		str6 = "    ab   c  efdaf   safkj   ";
+		console.log(str.replace(/ /g, ""));
+
+		console.log(str5.replace("?", ""));
+		var str7 = "我爱中华人民共和国";
+
+		//09. 截取字符串"我爱中华人民共和国"，中的"中华"
+		console.log(str7.slice(2, 4))
+
+		// 10.查找字符串中所有o出现的位置
+		var str8 = "abcoefoxyozzopp";
+		var arr1 = [];
+		for (var i = 0; i < str8.length; i++) {
+			if (str8[i] == "o") {
+				arr1.push(i)
+			}
+		}
+		console.log(arr1);
+
+		//11. 统计一个字符串中每个字符出现的次数
+		//			var obj = {};
+		//			for(var i = 0; i < str8.length; i++) {
+		//				if(obj[str8[i]] == undefined) {
+		//					obj[str8[i]] = 1;
+		//				} else {
+		//					obj[str8[i]]++;
+		//				}
+		//			}
+		//			console.log(obj);
+
+
+		function toPoint(percent) {
+			var str = percent.replace("%", "");
+			str = str / 100;
+			return str;
+		}
+
+		var aaaa = "33"
+		console.log(toPoint(aaaa))
+
+		if (toPoint(aaaa) < 1) {
+
+			alert(9);
+		} else {
+			alert(2)
+		}
+
+	</script>
+</body>
+
+</html>
